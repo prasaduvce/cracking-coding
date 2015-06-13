@@ -9,15 +9,32 @@ public class StringUniqueCheckHelper {
 
     private static final Logger LOG = LoggerFactory.getLogger(StringUniqueCheckHelper.class);
 
+    //Solution 1
+    public boolean isUniqueChars2(String inputString) {
+        LOG.info("Received Input String ==> {}" , inputString);
+        boolean [] char_set = new boolean [256];
+        for (int i=0; i<inputString.length(); i++) {
+            int val = inputString.charAt(i);
+            if (char_set[val])
+                return false;
+            char_set[val] = true;
+        }
+        return true;
+    }
+
+    //Solution 2
     public boolean isStringHasUniqueCharacters(String inputString) {
         LOG.info("Received Input String ==> {}" , inputString);
-        boolean flag = false;
+        boolean flag = true;
         if (!Optional.ofNullable(inputString).isPresent()) {
             flag = false;
         }
         for (int i=0; i<inputString.length(); i++) {
             char keyCharacter = inputString.charAt(i);
             flag = !isStringContainsCharacterExcludingIndex(inputString, keyCharacter, i);
+            if (!flag) {
+                return flag;
+            }
         }
         return flag;
     }
