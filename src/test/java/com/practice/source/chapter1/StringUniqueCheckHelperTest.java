@@ -21,7 +21,7 @@ public class StringUniqueCheckHelperTest {
     }
 
     @Test
-    @Parameters({"abb, false","ab, true","abccddeeff, false", "abcdefghijkl, true", "RenukaPrasad, false","sample, true", "sesame, false"})
+    @Parameters({"abb, false","ab, true","abccddeeff, false", "abcdefghijkl, true", "RenukaPrasad, false","sample, true", "sesame, false", "aaaabbbb, false"})
     public void verifyWhetherStringHasUniqueCharacters(String input, boolean isValid) {
         Assert.assertThat(new StringUniqueCheckHelper().isStringHasUniqueCharacters(input), Is.is(isValid));
     }
