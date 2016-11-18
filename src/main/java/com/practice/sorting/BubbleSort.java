@@ -2,6 +2,8 @@ package com.practice.sorting;
 
 import java.util.Scanner;
 
+
+//TODO: Analyze the time and space complexity
 public class BubbleSort {
 
 	public static void main(String[] args) {
