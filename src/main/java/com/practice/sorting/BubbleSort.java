@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 
 //TODO: Analyze the time and space complexity
+//Time Complexity: O(n Square)
+//Space Complexity: O(n)
 public class BubbleSort {
 
 	public static void main(String[] args) {
