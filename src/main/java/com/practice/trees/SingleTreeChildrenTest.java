@@ -1,4 +1,4 @@
-package com.practice.tress;
+package com.practice.trees;
 
 import java.util.ArrayList;
 import java.util.List;
