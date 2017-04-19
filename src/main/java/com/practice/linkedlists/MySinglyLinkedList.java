@@ -56,7 +56,25 @@ public class MySinglyLinkedList {
 		return head;
 	}
 
+	public void reverse() {
 
+		if (head == null) {
+			System.out.println("Empty list. Cannot reverse list");
+			return;
+		}
+		Node1 prev= null;
+		Node1 cur = head;
+		Node1 next = null;
+
+		while (cur != null) {
+			next = cur.getLink();
+			cur.link = prev;
+			prev = cur;
+			cur = next;
+		}
+
+		head = prev;
+	}
 
 	public void display() {
 		if (head == null) {
@@ -65,7 +83,7 @@ public class MySinglyLinkedList {
 		}
 
 		for (Node1 tmp=head;tmp != null; tmp=tmp.getLink()) {
-			System.out.print(tmp.getData()+" ");
+			System.out.print(tmp.getData()+" -> ");
 		}
 
 	}

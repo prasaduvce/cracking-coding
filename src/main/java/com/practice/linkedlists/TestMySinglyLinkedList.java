@@ -12,6 +12,10 @@ public class TestMySinglyLinkedList {
 		linkedList.insertFront(11);
 		linkedList.insertToEnd(44);
 		linkedList.insertToEnd(55);
+		System.out.println("Displaying list===> ");
+		linkedList.display();
+		System.out.println("Reversing list===> ");
+		linkedList.reverse();
 		linkedList.display();
 	}
 }
