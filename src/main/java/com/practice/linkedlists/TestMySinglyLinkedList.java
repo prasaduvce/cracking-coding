@@ -39,6 +39,18 @@ public class TestMySinglyLinkedList {
 		linkedList.deleteFront();
 		System.out.println("\nList after 2nd deleteFront");
 		linkedList.display();
+
+		linkedList.insertToEnd(11);
+		linkedList.insertToEnd(22);
+		linkedList.insertToEnd(33);
+		linkedList.insertToEnd(44);
+		linkedList.insertToEnd(55);
+		linkedList.insertToEnd(66);
+		System.out.println("\nList after 2nd insertToEnd");
+		linkedList.display();
+		linkedList.deleteAtPosition(3);
+		System.out.println("\nList After delete at position");
+		linkedList.display();
 	}
 
 	private static void insertAtPosition(MySinglyLinkedList linkedList, int item, int pos) {

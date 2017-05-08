@@ -108,13 +108,7 @@ public class MySinglyLinkedList {
 	}
 
 	public void deleteRear() {
-		if (size() == 0) {
-			System.out.println("Nothing to delete");
-			return;
-		}
-		if (size() == 1) {
-			System.out.println("\nItem "+head.getData()+" is deleted");
-			head = null;
+		if (deleteEmptyOrSingleElementList()) {
 			return;
 		}
 		Node1 cur = head;
@@ -125,6 +119,34 @@ public class MySinglyLinkedList {
 		}
 		prev.setLink(null);
 		System.out.println("\nItem "+cur.getData()+" is deleted");
+	}
+
+	public void deleteAtPosition(int position) {
+		if (deleteEmptyOrSingleElementList()) {
+			return;
+		}
+		Node1 cur = head;
+		Node1 prev = null;
+		for (int i=1;i<position;i++) {
+			prev = cur;
+			cur = cur.getLink();
+		}
+		Node1 next = cur.getLink();
+		prev.setLink(next);
+		System.out.println("\nDeleting item "+cur.getData()+", at position "+position);
+	}
+
+	private boolean deleteEmptyOrSingleElementList() {
+		if (size() == 0) {
+			System.out.println("Nothing to delete");
+			return true;
+		}
+		if (size() == 1) {
+			System.out.println("\nItem "+head.getData()+" is deleted");
+			head = null;
+			return true;
+		}
+		return false;
 	}
 
 	public void display() {
