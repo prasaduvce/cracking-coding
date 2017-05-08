@@ -76,6 +76,57 @@ public class MySinglyLinkedList {
 		head = prev;
 	}
 
+	public void insertAtPosition(int pos, int item) {
+		if (pos == 0 || pos < 0) {
+			insertFront(item);
+			return;
+		}
+		int listSize = size();
+		if (pos > listSize) {
+			insertToEnd(item);
+			return;
+		}
+		Node1 cur = head;
+		for (int i=1; i<pos-1; i++) {
+			cur = cur.getLink();
+		}
+		Node1 nexNode = cur.getLink();
+		Node1 newNode = new Node1();
+		newNode.setData(item);
+		newNode.setLink(nexNode);
+		cur.setLink(newNode);
+	}
+
+	public void deleteFront() {
+		if (size() == 0) {
+			System.out.println("Nothing to delete");
+			return;
+		}
+		Node1 tmp = head;
+		head = head.getLink();
+		System.out.println("\nItem "+tmp.getData()+" is removed.");
+	}
+
+	public void deleteRear() {
+		if (size() == 0) {
+			System.out.println("Nothing to delete");
+			return;
+		}
+		if (size() == 1) {
+			System.out.println("\nItem "+head.getData()+" is deleted");
+			head = null;
+			return;
+		}
+		Node1 cur = head;
+		Node1 prev = null;
+		while (cur.getLink() != null) {
+			prev = cur;
+			cur = cur.getLink();
+		}
+		prev.setLink(null);
+		System.out.println("\nItem "+cur.getData()+" is deleted");
+	}
+
 	public void display() {
 		if (head == null) {
 			System.out.println("Empty Linked list");
@@ -85,6 +136,13 @@ public class MySinglyLinkedList {
 		for (Node1 tmp=head;tmp != null; tmp=tmp.getLink()) {
 			System.out.print(tmp.getData()+" -> ");
 		}
+	}
 
+	public int size() {
+		int count = 0;
+		for (Node1 tmp=head;tmp != null; tmp=tmp.getLink()) {
+			++count;
+		}
+		return count;
 	}
 }
