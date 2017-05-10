@@ -21,19 +21,24 @@ public class Processor {
 
 	public void consume() {
 		System.out.println("CONSUMER started ");
+
+		System.out.println("Enter any key to resume producer\n");
+		Scanner scanner = new Scanner(System.in);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 
-		Scanner scanner = new Scanner(System.in);
-
 		synchronized (this) {
-			System.out.println("Enter any key to resume producer\n");
 			scanner.nextLine();
 			System.out.println("Input received, now PRODUCER will be notified ");
 			notify();
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }
