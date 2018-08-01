@@ -12,4 +12,15 @@ public class ThreadSafeSingleton {
 		}
 		return threadSafeSingleton;
 	}
+
+	public static ThreadSafeSingleton get2LevelInstance() {
+		if (threadSafeSingleton == null) {
+			synchronized (ThreadSafeSingleton.class) {
+				if (threadSafeSingleton == null) {
+					threadSafeSingleton = new ThreadSafeSingleton();
+				}
+			}
+		}
+		return threadSafeSingleton;
+	}
 }
