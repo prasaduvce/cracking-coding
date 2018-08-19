@@ -15,6 +15,7 @@ public class SerializedSingleton implements Serializable {
 	}
 
 	protected Object readResolve() {
+		System.out.println("Invoked read resolve method");
 		return getInstance();
 	}
 }

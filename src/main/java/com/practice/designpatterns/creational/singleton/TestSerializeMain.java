@@ -14,7 +14,7 @@ import java.lang.reflect.InvocationTargetException;
 public class TestSerializeMain {
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		SerializedSingleton serializedSingleton = SerializedSingleton.getInstance();
-		System.out.println("serializedSingleton ==> "+serializedSingleton);
+		System.out.println("serializedSingleton ==> "+serializedSingleton.hashCode());
 		ObjectOutput objectOutput = new ObjectOutputStream(new FileOutputStream("serailize.ser"));
 		objectOutput.writeObject(serializedSingleton);
 		objectOutput.close();
@@ -22,6 +22,6 @@ public class TestSerializeMain {
 		ObjectInput objectInput = new ObjectInputStream(new FileInputStream("serailize.ser"));
 		SerializedSingleton deser = (SerializedSingleton) objectInput.readObject();
 		objectInput.close();
-		System.out.println("deser ===> "+deser);
+		System.out.println("deser ===> "+deser.hashCode());
 	}
 }
