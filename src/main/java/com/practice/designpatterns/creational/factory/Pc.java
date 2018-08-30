@@ -4,6 +4,6 @@ public class Pc implements Computer {
 
 	@Override
 	public String createdObject() {
-		return "Created PC";
+		return "Created Pc";
 	}
 }
