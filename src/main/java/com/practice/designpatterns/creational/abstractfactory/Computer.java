@@ -1,4 +1,4 @@
-package com.practice.designpatterns.behavioural;
+package com.practice.designpatterns.creational.abstractfactory;
 
 public abstract class Computer {
 	public abstract String getRAM();

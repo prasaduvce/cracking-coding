@@ -1,4 +1,4 @@
-package com.practice.designpatterns.behavioural;
+package com.practice.designpatterns.creational.abstractfactory;
 
 public class TestAbstractFactory {
 	public static void main(String[] args) {

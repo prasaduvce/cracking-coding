@@ -1,4 +1,4 @@
-package com.practice.designpatterns.behavioural;
+package com.practice.designpatterns.creational.abstractfactory;
 
 public class PcComputerFactory implements ComputerAbstractFactory{
 
