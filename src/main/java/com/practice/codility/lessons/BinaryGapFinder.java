@@ -1,4 +1,4 @@
-package com.practice.codility;
+package com.practice.codility.lessons;
 
 import java.util.ArrayList;
 import java.util.List;
