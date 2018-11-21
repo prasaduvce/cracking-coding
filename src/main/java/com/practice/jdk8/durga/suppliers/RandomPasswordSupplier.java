@@ -23,5 +23,13 @@ public class RandomPasswordSupplier {
 			return pwd;
 		};
 		System.out.println("Random password generator ==> "+passwordGenerator.get());
+		System.out.println("Random password generator ==> "+passwordGenerator.get());
+		System.out.println("Random password generator ==> "+passwordGenerator.get());
+		System.out.println("Random password generator ==> "+passwordGenerator.get());
+		System.out.println("Random password generator ==> "+passwordGenerator.get());
+		System.out.println("Random password generator ==> "+passwordGenerator.get());
+		System.out.println("Random password generator ==> "+passwordGenerator.get());
+
+
 	}
 }
