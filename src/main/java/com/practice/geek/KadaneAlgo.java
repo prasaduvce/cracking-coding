@@ -4,8 +4,8 @@ public class KadaneAlgo {
 	public static void main(String[] args) {
 		int [] nums = {-2, -3, 4, -1, -2, 1, 5, -3};
 
-		int max_so_far = 0;
-		int max_ending_here = 0;
+		int max_so_far = Integer.MIN_VALUE;
+		int max_ending_here = Integer.MIN_VALUE;
 		for (int num: nums) {
 			max_ending_here = max_ending_here + num;
 			if (max_ending_here < 0) {
