@@ -6,9 +6,9 @@ public class PrimeNumber {
 	static boolean [] primes = new boolean[1000000];
 
 	public static void main(String[] args) {
-		int num = 56;
+		int num = 37;
 		setupPrime();
-		System.out.println("Is "+ num +" Prime number ? "+isPrimeNumber(num));
+		System.out.println("Is "+ num +" Prime number ? "+isPrimeNew(num));
 	}
 
 	private static void setupPrime() {
@@ -25,5 +25,17 @@ public class PrimeNumber {
 
 	private static boolean isPrimeNumber(int num) {
 		return primes[num];
+	}
+
+	private static boolean isPrimeNew(int num) {
+		if (num ==0 || num == 1) {
+			return false;
+		}
+		for (int i=2; i<num;i++) {
+			if (num % i == 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
