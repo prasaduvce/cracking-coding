@@ -1,4 +1,4 @@
-package com.practice.designs;
+package com.practice.designs.vendingmachine;
 
 import java.math.BigDecimal;
 
