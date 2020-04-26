@@ -12,7 +12,7 @@ public class MaxValueOfIntString {
         List<Long> maxNums = new ArrayList<>();
         for (int i=0;i<numberOfTests;i++) {
             String input = scanner.next();
-            long maxValue = getMaxValue(input);
+            long maxValue = getMaxValueNew(input);
             maxNums.add(maxValue);
         }
         maxNums.forEach(integer -> System.out.println(integer));
@@ -29,6 +29,19 @@ public class MaxValueOfIntString {
                     maxValue = maxValue * (ch - '0');
                 }
             }
+        return maxValue;
+    }
+
+    private static long getMaxValueNew(String input) {
+        long maxValue = Long.parseLong(input.substring(0, 1));
+        for (int i=1;i<input.length();i++) {
+            String substring = input.substring(i, i + 1);
+            if (substring.equalsIgnoreCase("0") || substring.equalsIgnoreCase("1") || maxValue < Long.parseLong("2")) {
+                maxValue = maxValue + Long.parseLong(substring);
+            } else {
+                maxValue = maxValue * Long.parseLong(substring);
+            }
+        }
         return maxValue;
     }
 }
