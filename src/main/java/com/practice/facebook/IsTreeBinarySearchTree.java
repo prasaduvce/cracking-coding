@@ -1,6 +1,12 @@
 package com.practice.facebook;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class IsTreeBinarySearchTree {
+
+    private static List<Integer> numbers = new ArrayList<>();
 
     public static void main(String[] args) {
         BSTTNodeNew node6 = new BSTTNodeNew(6, null, null);
@@ -32,6 +38,24 @@ public class IsTreeBinarySearchTree {
         System.out.println(isBst(node6));
         System.out.println(isBst(node6, Integer.MIN_VALUE, Integer.MAX_VALUE));
         System.out.println(isBstWithInorder(node6, Integer.MIN_VALUE));
+        System.out.println(isListSorted(numbers));
+    }
+
+    private static boolean isListSorted(List<Integer> numbers) {
+        if (numbers.isEmpty()) {
+            return true;
+        }
+        Iterator<Integer> iterator = numbers.iterator();
+        Integer cur;
+        Integer prev = iterator.next();
+        while (iterator.hasNext()) {
+            cur = iterator.next();
+            if (prev > cur) {
+                return false;
+            }
+            prev = cur;
+        }
+        return true;
     }
 
     private static boolean isBst(BSTTNodeNew root, int minValue, int maxValue) {
@@ -74,6 +98,7 @@ public class IsTreeBinarySearchTree {
         if (root != null) {
             inorderTraversal(root.getLeft());
             System.out.println(root.getData());
+            numbers.add(root.getData());
             inorderTraversal(root.getRight());
         }
     }
