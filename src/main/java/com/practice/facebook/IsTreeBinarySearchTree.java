@@ -31,6 +31,7 @@ public class IsTreeBinarySearchTree {
         inorderTraversal(node6);
         System.out.println(isBst(node6));
         System.out.println(isBst(node6, Integer.MIN_VALUE, Integer.MAX_VALUE));
+        System.out.println(isBstWithInorder(node6, Integer.MIN_VALUE));
     }
 
     private static boolean isBst(BSTTNodeNew root, int minValue, int maxValue) {
@@ -75,6 +76,20 @@ public class IsTreeBinarySearchTree {
             System.out.println(root.getData());
             inorderTraversal(root.getRight());
         }
+    }
+
+    private static boolean isBstWithInorder(BSTTNodeNew root, int prev) {
+        if (root != null) {
+            if (!isBstWithInorder(root.getLeft(), prev)) {
+                return false;
+            }
+            if (root.getData() <= prev) {
+                return false;
+            }
+            prev = root.getData();
+            return isBstWithInorder(root.getRight(), prev);
+        }
+        return true;
     }
 }
 
