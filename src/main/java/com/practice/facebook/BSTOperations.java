@@ -18,22 +18,27 @@ public class BSTOperations {
         System.out.println("Min of Tree is: "+bstOperations.findMin(root));
         System.out.println("Max of Tree is: "+bstOperations.findMax(root));*/
 
+        System.out.println("feature ===> "+Runtime.version());
         BSTOperations bstOperationsNew = new BSTOperations();
         BSTNode newRoot = bstOperationsNew.createTree(6, null);
         bstOperationsNew.createTree(4, newRoot);
-        bstOperationsNew.createTree(3, newRoot);
+        //bstOperationsNew.createTree(3, newRoot);
         bstOperationsNew.createTree(5, newRoot);
-        bstOperationsNew.createTree(2, newRoot);
-        bstOperationsNew.createTree(1, newRoot);
+        //bstOperationsNew.createTree(2, newRoot);
+        //bstOperationsNew.createTree(1, newRoot);
         bstOperationsNew.createTree(9, newRoot);
         bstOperationsNew.createTree(7, newRoot);
-        bstOperationsNew.createTree(10, newRoot);
-        bstOperationsNew.createTree(6, newRoot);
+        //bstOperationsNew.createTree(10, newRoot);
+        //bstOperationsNew.createTree(6, newRoot);
         bstOperationsNew.createTree(8, newRoot);
-        bstOperationsNew.createTree(11, newRoot);
-        bstOperationsNew.createTree(12, newRoot);
+        //bstOperationsNew.createTree(11, newRoot);
+        //bstOperationsNew.createTree(12, newRoot);
         bstOperationsNew.inorderTraverse(newRoot);
         System.out.println("findHeight Tree ==> "+bstOperationsNew.findHeight(newRoot));
+        System.out.println("Left View Below");
+        bstOperationsNew.printLeftView(newRoot);
+        System.out.println("Right View Below");
+        bstOperationsNew.printRightView(newRoot);
     }
 
     private BSTNode createTree(int data, BSTNode root) {
@@ -55,6 +60,32 @@ public class BSTOperations {
             System.out.println(root.getData());
             inorderTraverse(root.getRight());
         }
+    }
+
+    private void printLeftView(BSTNode root) {
+        if (root == null) {
+           return;
+        }
+        if (root.getLeft() == null && root.getRight() != null) {
+            printLeftView(root.getRight());
+        }
+        if (root.getLeft() == null || root.getLeft() != null) {
+            System.out.println(root.getData());
+        }
+        printLeftView(root.getLeft());
+    }
+
+    private void printRightView(BSTNode root) {
+        if (root == null) {
+            return;
+        }
+        if (root.getRight() == null && root.getLeft() != null) {
+            printLeftView(root.getLeft());
+        }
+        if (root.getRight() == null || root.getRight() != null) {
+            System.out.println(root.getData());
+        }
+        printRightView(root.getRight());
     }
 
     private boolean search(BSTNode root, int element) {
