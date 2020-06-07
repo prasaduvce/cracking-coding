@@ -3,7 +3,7 @@ package com.practice.klarna;
 public class OrdinalString {
 
     public static void main(String[] args) {
-        Integer number = 1;
+        Integer number = 23;
         String result = numberToOrdinal(number);
         System.out.println(result);
 
@@ -31,10 +31,7 @@ public class OrdinalString {
     }
 
     private static boolean ifNumberBetween4And20Range(Integer number) {
-        if (number>=4 && number<=20) {
-            return true;
-        }
-        for (int i=100;i<10000;i=i+100) {
+        for (int i=0;i<10000;i=i+100) {
             if (number >= (i+4) && number <=(i+20)) {
                 return true;
             }

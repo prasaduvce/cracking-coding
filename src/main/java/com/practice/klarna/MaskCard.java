@@ -19,9 +19,6 @@ public class MaskCard {
         if ("".equals(creditCardNumber.trim())) {
             return "";
         }
-        if ("Skippy".equals(creditCardNumber.trim())) {
-            return "Skippy";
-        }
         if (creditCardNumber.length() < 6) {
             return creditCardNumber;
         }
@@ -34,11 +31,11 @@ public class MaskCard {
         String substringToMask = creditCardNumber.substring(1, last4CharIndex);
         maskedStringBuilder.append(firstCharacter);
         for (int i=0;i<substringToMask.length();i++) {
-            String str = substringToMask.substring(i,i+1);
-            if (isNumeric(str)) {
+            char c = substringToMask.charAt(i);
+            if (Character.isDigit(c)) {
                 maskedStringBuilder.append("#");
             } else {
-                maskedStringBuilder.append(str);
+                maskedStringBuilder.append(c);
             }
         }
         maskedStringBuilder.append(last4Characters);
@@ -47,20 +44,11 @@ public class MaskCard {
 
     private static boolean stringContainsNumericChars(String numAsString) {
         for (int i=0;i<numAsString.length();i++) {
-            String subString = numAsString.substring(i,i+1);
-            if (isNumeric(subString)) {
+            char c = numAsString.charAt(i);
+            if (Character.isDigit(c)) {
                 return true;
             }
         }
         return false;
-    }
-
-    private static boolean isNumeric(String numAsString) {
-        try {
-            int i = Integer.parseInt(numAsString);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
     }
 }
