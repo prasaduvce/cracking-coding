@@ -1,7 +1,10 @@
 package com.practice.zalando;
 
+import java.util.Arrays;
+
 public class ResultMatrix {
 
+    private static final String IMPOSSIBLE = "IMPOSSIBLE";
     private int [][] numsBoard;
 
     private int row;
@@ -32,14 +35,16 @@ public class ResultMatrix {
     }
 
     public int getRowSum(int rowIndex) {
-        int sum = 0;
+        return Arrays.stream(numsBoard[rowIndex]).sum();
+        /*int sum = 0;
         for (int i=0;i<col;i++) {
             sum = sum + numsBoard[rowIndex][i];
         }
-        return sum;
+        return sum;*/
     }
 
     public int getColumnSum(int columnIndex) {
+        //return Arrays.stream(numsBoard[columnIndex]).sum();
         int sum = 0;
         for (int i=0;i<row;i++) {
             sum = sum+numsBoard[i][columnIndex];
@@ -47,7 +52,7 @@ public class ResultMatrix {
         return sum;
     }
 
-    public void placeNumber(int row, int col) {
+    public void placeNumber(int col) {
         int arrayRow0Sum = getRowSum(0);
         int colSum = getColumnSum(col);
         if (arrayRow0Sum < row0Sum && colSum < nums[col]) {
@@ -60,7 +65,7 @@ public class ResultMatrix {
         }
     }
 
-    public void displayBoard() {
+    public void displayBoardOld() {
         System.out.println("-----------------");
         for (int i=0;i<row;i++) {
             System.out.print("|");
@@ -70,5 +75,29 @@ public class ResultMatrix {
             System.out.println("");
             System.out.println("-----------------");
         }
+    }
+
+    public String displayBoard() {
+        int resultRow0Sum = getRowSum(0);
+        int resultRow1Sum = getRowSum(1);
+        if (resultRow0Sum != row0Sum || resultRow1Sum != row1Sum) {
+            return IMPOSSIBLE;
+        }
+
+        return toString(numsBoard[0])+","+toString(numsBoard[1]);
+    }
+
+    public String toString(int[] input) {
+        StringBuilder stringBuilder = new StringBuilder();
+        //String inputString = Arrays.toString(input);
+        Arrays.stream(input).forEach(value ->
+                stringBuilder.append(value)
+            );
+        return stringBuilder.toString();
+
+        //String formattedString = inputString.replace(", ","").replace("[","").replace("]","");
+        /*formattedString = formattedString.replace("[", "");
+        formattedString = formattedString.replace("]", "");*/
+        //return formattedString;
     }
 }
