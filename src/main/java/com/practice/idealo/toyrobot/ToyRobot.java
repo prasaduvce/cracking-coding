@@ -1,16 +1,39 @@
 package com.practice.idealo.toyrobot;
 
 public class ToyRobot {
+    int maxX;
+    int maxY;
     int x;
     int y;
     Facing facing;
+
+    public ToyRobot(int maxX, int maxY) {
+        this.maxX = maxX;
+        this.maxY = maxY;
+    }
+
+    public int getMaxX() {
+        return maxX;
+    }
+
+    public void setMaxX(int maxX) {
+        this.maxX = maxX;
+    }
+
+    public int getMaxY() {
+        return maxY;
+    }
+
+    public void setMaxY(int maxY) {
+        this.maxY = maxY;
+    }
 
     public int getX() {
         return x;
     }
 
     public void setX(int x) {
-        if (x > 5 || x < 0) {
+        if (x > this.maxY || x < 0) {
             throw new IllegalArgumentException("x or y value invalid");
         }
         this.x = x;
@@ -21,7 +44,7 @@ public class ToyRobot {
     }
 
     public void setY(int y) {
-        if (y > 5 || y < 0) {
+        if (y > this.maxY || y < 0) {
             throw new IllegalArgumentException("x or y value invalid");
         }
         this.y = y;
@@ -35,8 +58,8 @@ public class ToyRobot {
         this.facing = facing;
     }
 
-    public void init(int x, int y, Facing facing) {
-        if (x > 5 || y >5 || x < 0 || y < 0) {
+    public void place(int x, int y, Facing facing) {
+        if (x > this.maxX || y > this.maxY || x < 0 || y < 0) {
             throw new IllegalArgumentException("x or y value invalid");
         }
         this.x = x;
