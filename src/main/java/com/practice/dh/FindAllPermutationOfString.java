@@ -1,9 +1,17 @@
 package com.practice.dh;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 public class FindAllPermutationOfString {
 
     public static void main(String[] args) {
         String str = "abc";
+
+        Set<String> permutations = new HashSet<>();
+        permutations.stream().filter(s -> s.length() == str.length()).collect(Collectors.toSet());
+
         printPermut(str, "");
     }
 
